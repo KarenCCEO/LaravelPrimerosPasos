@@ -1,4 +1,3 @@
-<!--No olvides agregar siempre la extension de blade-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Dashboard</h1>
+    @yield("content")
+    {{-- incluyendo un fragmento de codigo de la vista que esta en fragment/ --}}
+@include("fragment.subview")
     @if($name == "Karen")
     Es true 
     @else

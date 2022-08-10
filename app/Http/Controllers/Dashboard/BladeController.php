@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Dashboard;
+//control espacio para importar la ruta
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BladeController extends Controller
@@ -13,7 +14,7 @@ class BladeController extends Controller
      */
     public function index()
     {
-        return view("PracticaBlade", ['name'=> 'Karen', 'age'=>22, 'html'=> '<h1 style="color:red" >Mira nada mas este grandioso titulo</h1>', 'arrays'=> [1,2,2,4,5,6,7], 'arrayss'=> []]);
+        return view("test/PracticaBlade", ['name'=> 'Karen', 'age'=>22, 'html'=> '<h1 style="color:red" >Mira nada mas este grandioso titulo</h1>', 'arrays'=> [1,2,2,4,5,6,7], 'arrayss'=> []]);
     }
 
     /**
