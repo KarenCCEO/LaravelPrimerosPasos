@@ -12,7 +12,7 @@
     <a href="/contacto">Contacto</a>
     <!--ruta con nombre -->
     <a href="{{route('contactoNombre')}}">Contacto (ruta con nombre)</a>
-    <h1>Esto es info de la base de datos</h1>
+    <h1 style="color:blue">Esto es info de la base de datos</h1>
     {{ $user-> name}}
 </body>
 </html>
