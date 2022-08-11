@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string("image");
             $table->enum("posted", ['yes','not']);
             $table->timestamps();
+            /*añadiendo llave foranea */
+            $table->foreignId('categoria_id')->constrained()->onDeleted('cascade');
         });
     }
 
