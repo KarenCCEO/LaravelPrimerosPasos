@@ -14,5 +14,7 @@
     <a href="{{route('contactoNombre')}}">Contacto (ruta con nombre)</a>
     <h1 style="color:blue">Esto es info de la base de datos</h1>
     {{ $user-> name}}
+    <hr>
+    {{ $name}}
 </body>
 </html>

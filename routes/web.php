@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BladeController;
+use App\Http\Controllers\Dashboard\BladeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 
@@ -27,6 +27,7 @@ Route::get('/custom', function () {
 Route::get('/contacto', function () {
     return view('contacto');
 })->name('contactoNombre');
+
 Route::get('/PracticaBlade', [BladeController::class, 'index']);
 
 

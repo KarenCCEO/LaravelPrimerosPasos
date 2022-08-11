@@ -10,9 +10,13 @@ class TestController extends Controller
     function test ()
     {
         $user = User::find(01);
+        $name= "este es mi nombre";
         /*var_dump($user);*/
         /*echo "Hola mundito";*/
-        return view ('welcome', ['user' => $user]);
+        
+        /* esta es la forma normal->return view ('welcome', ['user' => $user]);
+        y con compact podemos reducir el codigo */
+        return view ('welcome', compact('user','name'));
         
     }
 }
