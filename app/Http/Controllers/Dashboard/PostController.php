@@ -43,14 +43,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         /*$validated = $request->validate(StoreRequest::myRules());
        // dd($validated);
        // dd(request("title"));
         // echo $request->input('slug');*/
-        $validated = Validator::make($request->all(),StoreRequest::myRules());
-        dd($validated->errors());
+        //$validated = Validator::make($request->all(),StoreRequest::myRules());
+       // dd($validated->errors());
         $data = array_merge($request->all(),['image'=>'']);
         //dd($data);
 

@@ -7,6 +7,15 @@
     <title>Crear Post</title>
 </head>
 <body>
+<h1>Crear post</h1>
+@if($errors->any())
+    @foreach($errors->all() as $e)
+        <div class="error">
+            {{$e}}
+
+        </div>
+    @endforeach
+@endif
     <form action="{{route('post.store')}}" method="post">
         <!--El CSRF es un tipo de exploit malicioso de un sitio web en el
             que comandos no autorizados son transmitidos por un usuario en
