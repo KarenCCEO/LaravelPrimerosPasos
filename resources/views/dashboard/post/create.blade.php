@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Post</title>
-</head>
-<body>
-<h1>Crear post</h1>
-@include('dashboard.fragment._errors-form')
-
-
-
+@extends('dashboard.layout')
+@section('content')
     <form action="{{route('post.store')}}" method="post">
         <!--El CSRF es un tipo de exploit malicioso de un sitio web en el
             que comandos no autorizados son transmitidos por un usuario en
@@ -48,7 +36,5 @@
         <textarea name="description"></textarea>
 
         <button type="submit">Enviar</button>
-</form>
-
-</body>
-</html>
+    </form>
+@endsection

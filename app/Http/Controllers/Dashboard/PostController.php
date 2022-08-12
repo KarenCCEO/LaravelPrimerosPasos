@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -51,10 +52,12 @@ class PostController extends Controller
         // echo $request->input('slug');*/
         //$validated = Validator::make($request->all(),StoreRequest::myRules());
        // dd($validated->errors());
-        $data = array_merge($request->all(),['image'=>'']);
+       // $data = array_merge($request->all(),['image'=>'']);
         //dd($data);
-
-
+        //se clona request por qu eno se puede manipular la data directamente
+        $data = $request->validated();
+        $data['slug']= Str::slug($data['title']);
+      
 
         Post::create($data);
     }
