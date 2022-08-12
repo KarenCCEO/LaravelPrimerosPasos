@@ -57,7 +57,7 @@ class PostController extends Controller
         //se clona request por qu eno se puede manipular la data directamente
         $data = $request->validated();
         $data['slug']= Str::slug($data['title']);
-      
+
 
         Post::create($data);
     }
