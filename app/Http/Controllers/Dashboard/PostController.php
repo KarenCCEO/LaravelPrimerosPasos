@@ -27,7 +27,10 @@ class PostController extends Controller
      */
     public function create()
     {
+        /*este es un select all from categories
         $categories=Category::get();
+        para usar pluck hay que darle la clave que es el id y el valor a mostrar que es el titulo*/
+        $categories=Category::pluck('id','title');
         echo view('dashboard.post.create', compact('categories'));
     }
 
@@ -39,11 +42,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
-    
+
+
+
        // dd(request("title"));
-        dd ($request);
+        // echo $request->input('slug');
+        $data = array_merge($request->all(),['image'=>'']);
+        //dd($data);
+
+        Post::create($data);
     }
 
     /**
