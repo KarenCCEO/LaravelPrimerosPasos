@@ -68,6 +68,12 @@ class PostController extends Controller
 
 
         Post::create($data);
+
+        // estas son diferentes formas de redireccionar
+        //   return route("post.create");
+        //return redirect("/post/create");
+        //return redirect()->route("post.create");
+        return to_route("post.index")->with('status',"Registro creado.");
     }
 
     /**
@@ -102,7 +108,7 @@ class PostController extends Controller
      */
     public function update(StoreRequest $request, Post $post)
     {
-        //
+        return to_route("post.index")->with('status',"Registro actualizado.");
     }
 
     /**
@@ -114,5 +120,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         echo "destroy";
+        return to_route("post.index")->with('status',"Registro eliminado.");
     }
 }
