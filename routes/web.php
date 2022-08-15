@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('post', PostController::class);
+//para que los argumentos sean opcionales se agrega el signo de interrogacion deses del uri
+//Route::get('test/{id}/{name}', function ($id, $name)
+Route::get('test/{id?}/{name?}', function ($id = 10, $name="karen"){
+    echo $id;
+    echo $name;
+});
+Route::resource('post',PostController::class);
+Route::resource('category', CategoryController::class);
 //Route::get('post',[PostController::class,'index']);
 //Route::get('post/{post}',[PostController::class,'show']);
 //Route::get('post/create',[PostController::class,'create']);
