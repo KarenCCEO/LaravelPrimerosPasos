@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Str;
 
+use App\Http\Requests\Post\PutRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +23,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::paginate(2);
+        /*este post ayuda a la paginacion*/
+        $posts=Post::paginate(6);
         return view('dashboard.post.index', compact('posts'));
     }
 
@@ -35,9 +38,13 @@ class PostController extends Controller
         /*este es un select all from categories
         $categories=Category::get();
         para usar pluck hay que darle la clave que es el id y el valor a mostrar que es el titulo*/
-        $categories=Category::pluck('id','title');
-        echo view('dashboard.post.create', compact('categories'));
-    }
+        $categories = Category::pluck('id', 'title');
+        $post = new Post();
+
+        // dd($categories);
+
+        echo view('dashboard.post.create', compact('categories', 'post'));
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -71,7 +78,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        echo "show";
     }
 
     /**
@@ -82,7 +89,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::pluck('id', 'title');
+        echo view('dashboard.post.edit', compact('categories', 'post'));
     }
 
     /**
@@ -92,7 +100,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(StoreRequest $request, Post $post)
     {
         //
     }
@@ -105,6 +113,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        echo "destroy";
     }
 }
